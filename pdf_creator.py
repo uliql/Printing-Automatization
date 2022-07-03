@@ -24,16 +24,11 @@ def odd_and_even_creator(path):
             new_odd_pdf.addPage(pdf.getPage(number))
         
         # Even section
-        for number in even_numbers_list:
+        for number in reversed(even_numbers_list):
             new_even_pdf.addPage(pdf.getPage(number))
+  
 
-        with open(r'G:\Mi unidad\Codigo\Printing Automatization\New Documents\new_odd_pdf.pdf','wb') as f:
-            new_odd_pdf.write(f)
-
-        with open(r'G:\Mi unidad\Codigo\Printing Automatization\New Documents\new_even_pdf.pdf','wb') as f:
-            new_even_pdf.write(f)  
-
-        return ('Your new pdfs were created and are ready to print')  
+        return ([new_odd_pdf, new_even_pdf])  
     
     else:
         return ('El archivo tiene una sola carilla')
